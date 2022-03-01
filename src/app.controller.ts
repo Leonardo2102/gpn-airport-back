@@ -1,12 +1,18 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { FlightDTO } from './flight/flight.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getAll(): Promise<FlightDTO[]> {
+    return this.appService.getAll();
+  }
+
+  @Get('filtered')
+  getFiltered(): FlightDTO[] {
+    return;
   }
 }

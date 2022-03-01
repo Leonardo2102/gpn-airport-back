@@ -1,2 +1,2 @@
-INSERT INTO vuelo VALUES (default, 'Caracas','Madrid','RT', '2022-03-01T10:00:00','2022-03-01T18:45:00', 800, INTERVAL '8h45m', 100);
-INSERT INTO vuelo VALUES (default, 'Caracas','Miami','OW', '2022-03-01T10:00:00','2022-03-01T13:30:00', 800, INTERVAL '3h30m', 100);
+INSERT INTO flight VALUES (default, 'Caracas','Madrid','RT', '2022-03-01T10:00:00','2022-03-01T18:45:00', 800, INTERVAL '8h45m', 100);
+INSERT INTO flight VALUES (default, 'Caracas','Miami','OW', '2022-03-01T10:00:00','2022-03-01T13:30:00', 800, INTERVAL '3h30m', 100);

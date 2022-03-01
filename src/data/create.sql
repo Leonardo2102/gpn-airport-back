@@ -1,4 +1,4 @@
-CREATE TABLE vuelo (
+CREATE TABLE flight (
 	id SERIAL PRIMARY KEY,
 	origin varchar(100) NOT NULL,
 	destination varchar(100) NOT NULL,
@@ -10,6 +10,6 @@ CREATE TABLE vuelo (
 	free_seats int NOT NULL
 );
 
-ALTER TABLE vuelo
+ALTER TABLE flight
 	ADD CONSTRAINT check_trip_type
 	CHECK(trip_type = 'RT' OR trip_type = 'OW');
