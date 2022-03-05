@@ -4,7 +4,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class FlightEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string;
-
   @Column()
   readonly flightNumber: string;
   @Column()

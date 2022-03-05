@@ -1,18 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { FlightDTO } from './flight/flight.dto';
+import { FilterBody } from './flight/flightFilterBody';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getAll(): Promise<FlightDTO[]> {
-    return this.appService.getAll();
+  async getAll(): Promise<FlightDTO[]> {
+    return await this.appService.getAll();
   }
 
-  @Get('filtered')
-  getFiltered(): FlightDTO[] {
-    return;
+  @Post('filter')
+  async getFiltered(@Body() filtros: FilterBody): Promise<FlightDTO[]> {
+    return this.appService.getFiltered(filtros);
   }
 }
