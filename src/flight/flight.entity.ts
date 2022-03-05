@@ -20,6 +20,8 @@ export class FlightEntity {
   readonly duration: string;
   @Column()
   readonly freeSeats: number;
+  @Column()
+  readonly fligthDate: Date;
 
   constructor(
     id: string,
@@ -31,6 +33,7 @@ export class FlightEntity {
     price: number,
     duration: string,
     freeSeats: number,
+    flightDate: Date,
   ) {
     this.id = id;
     this.flightNumber = flightNumber;
@@ -41,5 +44,6 @@ export class FlightEntity {
     this.price = price;
     this.duration = duration;
     this.freeSeats = freeSeats;
+    this.fligthDate = flightDate;
   }
 }

@@ -15,6 +15,7 @@ export class FlightMapper {
       flightDTO.price,
       flightDTO.duration,
       flightDTO.freeSeats,
+      flightDTO.fligthDate,
     );
   }
 
@@ -29,6 +30,7 @@ export class FlightMapper {
       flightEntity.price,
       flightEntity.duration,
       flightEntity.freeSeats,
+      flightEntity.fligthDate,
     );
   }
 }

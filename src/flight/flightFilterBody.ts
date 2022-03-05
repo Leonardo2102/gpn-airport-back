@@ -6,11 +6,11 @@ export class FilterBody {
   @ApiProperty()
   readonly destination: string;
   @ApiProperty()
-  readonly departure: Date;
+  readonly date: Date;
 
   constructor(origin: string, destination: string, departure: Date) {
     this.origin = origin;
     this.destination = destination;
-    this.departure = departure;
+    this.date = departure;
   }
 }

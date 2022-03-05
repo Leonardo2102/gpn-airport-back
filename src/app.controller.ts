@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { FlightDTO } from './flight/flight.dto';
 import { FilterBody } from './flight/flightFilterBody';
@@ -12,8 +12,13 @@ export class AppController {
     return await this.appService.getAll();
   }
 
-  @Post('filter')
-  async getFiltered(@Body() filtros: FilterBody): Promise<FlightDTO[]> {
+  @Get('filter/:origin/:destination/:date')
+  async getFiltered(
+    @Param('origin') origin: string,
+    @Param('destination') destination: string,
+    @Param('date') date: Date,
+  ): Promise<FlightDTO[]> {
+    const filtros: FilterBody = new FilterBody(origin, destination, date);
     return this.appService.getFiltered(filtros);
   }
 }

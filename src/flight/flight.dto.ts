@@ -19,6 +19,8 @@ export class FlightDTO {
   readonly duration: string;
   @ApiProperty()
   readonly freeSeats: number;
+  @ApiProperty()
+  readonly fligthDate: Date;
 
   constructor(
     id: string,
@@ -30,6 +32,7 @@ export class FlightDTO {
     price: number,
     duration: string,
     freeSeats: number,
+    flightDate: Date,
   ) {
     this.id = id;
     this.flightNumber = flightNumber;
@@ -40,5 +43,6 @@ export class FlightDTO {
     this.price = price;
     this.duration = duration;
     this.freeSeats = freeSeats;
+    this.fligthDate = flightDate;
   }
 }
