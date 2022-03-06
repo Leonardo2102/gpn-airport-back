@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-
 export class FlightDTO {
   @ApiProperty()
   readonly id?: string;

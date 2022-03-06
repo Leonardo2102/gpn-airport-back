@@ -7,6 +7,10 @@ import { FlightPostgreAdapter } from './flight/FlightPostgreAdapter';
 
 @Injectable()
 export class AppService {
+  /*Here we use dependency injection to eliminate tho dependency of our code
+  to a certain database. Since FlightPosgreAdapter implements an interface,
+  if we wanted to use a new database we would create a new adapter, change
+  the dependency and everything else would work the same*/
   constructor(
     private postgreRepo: FlightPostgreAdapter,
     private mapper: FlightMapper,

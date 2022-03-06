@@ -6,6 +6,7 @@ import { FlightEntity } from './flight.entity';
 import { FlightMapper } from './flight.mapper';
 import { FilterBody } from './flightFilterBody';
 
+//This is the implementation for postgresSQL
 export class FlightPostgreAdapter implements FlightRepo {
   constructor(
     @InjectRepository(FlightEntity)
@@ -30,6 +31,7 @@ export class FlightPostgreAdapter implements FlightRepo {
     return flights.map((flight) => this.mapper.entityToDto(flight));
   }
 
+  //Method avoid timezone errors
   dateToUtc(rawDate: Date): Date {
     const toUTCDate: number = Date.UTC(
       rawDate.getUTCFullYear(),

@@ -18,7 +18,7 @@ export class AppController {
     @Param('destination') destination: string,
     @Param('date') date: Date,
   ): Promise<FlightDTO[]> {
-    const filtros: FilterBody = new FilterBody(origin, destination, date);
-    return this.appService.getFiltered(filtros);
+    const filters: FilterBody = new FilterBody(origin, destination, date);
+    return this.appService.getFiltered(filters);
   }
 }
