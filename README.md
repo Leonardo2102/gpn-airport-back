@@ -1,6 +1,6 @@
 # GPN Airport API
 
-### API Version
+### :mag_right: API Version
 
 :sparkles: Release version: 1.0.0
 
@@ -14,7 +14,7 @@ You can download the lasted Node version [here](https://nodejs.org/es/)
 
 You can download the lasted PostgreSQL version [here](https://www.postgresql.org/download/)
 
-### Setup
+### :wrench: Setup
 
 - Install dependencies:
 
@@ -30,9 +30,9 @@ You should follow `.env.example` to see required variables
 
 - Setup database:
 
-1. Create a PostgresSQL database, under the same name you put in `.env`. _Note: dont't worry about tables or collections, the API will set them up._
+Create a PostgresSQL database, under the same name you put in `.env`. _Note: dont't worry about tables or collections, the API will set them up._
 
-### Scripts
+### :rocket: Running the app
 
 - Run the project locally:
 
@@ -50,6 +50,10 @@ npm run start:dev
 
 ```
 
-### API Reference
+### :green_book: API Reference
 
 #### :bulb: When running the proyect locally go to https://localhost:3000/api for documentation.
+
+### :test_tube: Testing
+
+- Once the proyect is running go to `src/data/instert.sql` and instert the test values on the database.
