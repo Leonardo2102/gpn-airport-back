@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { FlightRepo } from 'src/flight/FlightRepo';
-import { Between, LessThan, MoreThanOrEqual, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { FlightDTO } from './flight.dto';
 import { FlightEntity } from './flight.entity';
 import { FlightMapper } from './flight.mapper';
@@ -14,12 +14,12 @@ export class FlightPostgreAdapter implements FlightRepo {
   ) {}
 
   async getFiltered(filters: FilterBody): Promise<FlightDTO[]> {
-    const formatedDate: Date = new Date(filters.date);
+    const formatedDate: Date = this.dateToUtc(new Date(filters.date));
     const flights = await this.flightRepository.find({
       where: {
         origin: filters.origin,
         destination: filters.destination,
-        fligthDate: formatedDate.toISOString(),
+        fligthDate: formatedDate,
       },
     });
     return flights.map((flight) => this.mapper.entityToDto(flight));
@@ -28,5 +28,18 @@ export class FlightPostgreAdapter implements FlightRepo {
   async getAll(): Promise<FlightDTO[]> {
     const flights = await this.flightRepository.find();
     return flights.map((flight) => this.mapper.entityToDto(flight));
+  }
+
+  dateToUtc(rawDate: Date): Date {
+    const toUTCDate: number = Date.UTC(
+      rawDate.getUTCFullYear(),
+      rawDate.getUTCMonth(),
+      rawDate.getUTCDate(),
+      rawDate.getUTCHours(),
+      rawDate.getUTCMinutes(),
+      rawDate.getUTCSeconds(),
+    );
+    const formatedDate = new Date(toUTCDate);
+    return formatedDate;
   }
 }
